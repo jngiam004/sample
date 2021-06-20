@@ -1,0 +1,261 @@
+/*
+// Variables
+$color-1 : #cdb4db ; // Mobile
+$color-2 : #fff1e6 ; // Tablet
+$color-3 : #52b788 ; // Laptop
+$color-4 : #bee1e6 ; // Desktop
+
+$mobile  : 576px;
+$tablet  : 768px;
+$laptop  : 992px; 
+$desktop : 1200px;
+*/
+
+// Remove the default style of our browser
+*{
+    // Top, bottom, 0px then Left, right 5px
+    margin: 0px 5px;
+
+    //margin: 10px;
+    //margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+    body{
+        font-family: sans-serif;
+        font-size: 35px;
+
+        //font-size: 55px;
+    }
+}
+
+/*
+.container { 
+    // Set it to the whole screen height
+    height: 100vh;
+    // display: flex;
+    // Along x-axis
+    // justify-content: center;
+    // Along y-axis
+    // align-items: center;
+
+    display: grid;
+    // Place items in the shorthand of both the x and y axis
+    place-content: center;
+    background-color: #fff;
+}
+
+#size {
+    position: absolute;
+
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 35px;
+    color: red;
+}
+*/
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.container{
+    height: 100vh;
+}
+
+.header{
+    height: 10%;
+    //border: 2px solid red;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo{
+        // View port width unit
+        font-size: 4vw;
+    }
+    &__menu{
+        display: flex;
+        flex-direction: row;
+        // View port width unit
+        font-size: 2.5vw;
+        gap: 15px;
+    }
+}
+// &__logo{} is actually equivalent to writing .header__logo{}. This is actually a shortcut.
+
+.main{
+    height: 80%;
+    //border: 2px solid black;
+
+    display: flex;
+    flex-direction: row;
+
+    &__image{
+        background-image: url('./images/Portrait.png');
+        background-size: contain;
+
+        // The first value works on the x-axis and the second value works on the y-axis
+        background-position: left center;
+
+        // To prevent the image from being repeated
+        background-repeat: no-repeat;
+        width: 50%;
+
+        //border: 2px solid red;
+    }
+
+    &__text{
+        width: 50%;
+        //border: 2px solid red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        &-1 {
+            font-size: 10vw;
+        }
+        &-2,&-3,&-4 {
+            font-size: 5vw;
+        }
+    }
+}
+
+.footer{
+    height: 10%;
+    //border: 2px solid green;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-end;
+    margin-right: 10%;
+
+    [class ^="footer__"]{
+        img {
+            width: 5.3vw;
+        }
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Media Query
+/*  max-width sets styles inside the set boundary/breakpoint
+    min-width sets styles outside the set boundary/breakpoint
+*/
+/*
+@media (max-width: $desktop) {
+    // Your styles are here
+    .container {
+        background-color: $color-4;
+    }
+}
+
+@media (max-width: $laptop) {
+    // Your styles are here
+    .container {
+        background-color: $color-3;
+    }
+}
+
+@media (max-width: $tablet) {
+    // Your styles are here
+    .container {
+        background-color: $color-2;
+    }
+}
+
+@media (max-width: $mobile) {
+    // Your styles are here
+    .container {
+        background-color: $color-1;
+    }
+}
+*/
+
+
+
+@media (max-width: 650px) {
+    .header {
+        justify-content: center;
+        &__logo {
+            font-size: 40px;
+        }
+
+        &__menu {
+            display: none;
+        }
+    }
+    .main {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &__image {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            background-size: 100%;
+            background-position: center;
+        }
+        &__text {
+            width: 100%;
+            &-1 {
+                display: none;
+            }
+            &-2,&-3,&-4 {
+                font-size: 30px;
+            }
+        }
+    }
+    .footer {
+        justify-content: center;
+        margin: 0px;
+        [class ^="footer__"] {
+            img {
+                width: 45px;
+                height: 45px;
+            }
+        }
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+.container {
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+    gap: 30px;
+}
+
+[class ^="row-"] {
+   display: flex;
+   flex-direction: row;    
+   
+   gap: 30px;
+}
+
+[class ^="box-"] {
+    background-color: #c4c4c4;
+    border: 2px solid black;
+
+    width: (100%)/3;
+    height: (100vh)/3;
+    
+    display: grid;
+    place-content: center;
+}
+
+@media (max-width: 650px) {
+    [class ^="row-"] {
+        flex-direction: column;
+    }
+    [class ^="box-"] {
+        width: 100%;
+    }
+}
+*/
